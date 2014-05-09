@@ -14,12 +14,18 @@ use \BadMethodCallException;
  *
  * <code>
  * // The returned object from link() can be stored or immediately used for chaining
- * Chain::link(new Foo())->setFooPropX(42)->output();
+ * Chain::link(new PDF())
+ *     ->addPage()
+ *     ->writeCell($foo, $bar, $etc)
+ *     ->output();
  * </code>
  *
  * <code>
- * // When using reaction() all returned objects are decorated with a Chain object.
- * Chain::reaction(new Foo())->getBarProp()->setBarPropX(37)->write();
+ * // When using react() all returned objects are decorated with a Chain object.
+ * Chain::react(new Foo())
+ *     ->getBarObjProp()
+ *     ->setBarObjPropX(37)
+ *     ->invert();
  * </code>
  *
  * @author    Francois Raeven <francois@raeven.eu>
@@ -84,7 +90,7 @@ class Chain
      *
      * @return Chain
      */
-    public static function reaction($wrappedObj)
+    public static function react($wrappedObj)
     {
         return new self($wrappedObj, true);
     }
@@ -159,7 +165,7 @@ class Chain
 
         // If propagating then objects are decorated with Chain as well.
         if ($this->propagate && is_object($result)) {
-            return Chain::reaction($result);
+            return Chain::react($result);
         }
 
         // Last but not least: if NULL then return $this instead.
