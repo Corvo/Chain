@@ -1,5 +1,5 @@
 <?php
-namespace Corvo\Tools\Decorators;
+namespace Twire\Common\Decorators;
 
 use \BadMethodCallException;
 
@@ -23,15 +23,15 @@ use \BadMethodCallException;
  * <code>
  * // When using react() all returned objects are decorated with a Chain object.
  * Chain::react(new Foo())
- *     ->getBarObjProp()
- *     ->setBarObjPropX(37)
+ *     ->getBarObj()
+ *     ->setBarProp(37)
  *     ->invert();
  * </code>
  *
- * @author    Francois Raeven <francois@raeven.eu>
- * @link      http://raeven.eu/opensource
+ * @author    Francois Raeven <francois@twire.nl>
+ * @link      http://twire.nl/opensource
  * @license   http://opensource.org/licenses/MIT MIT License
- * @copyright (c) 2014, Francois Raeven
+ * @copyright (c) 2014, Twire Solutions
  */
 class Chain
 {
@@ -68,7 +68,7 @@ class Chain
      * If a method from the decorated object returns an object, it is returned as-is.
      * In this case the object is considered to be non-propagating.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param $wrappedObj
      *
@@ -84,7 +84,7 @@ class Chain
      * If a method from the decorated object returns an object, this object is also wrapped in a new Chain instance.
      * In this case the object is considered to be propagating.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param $wrappedObj
      *
@@ -98,7 +98,7 @@ class Chain
     /**
      * Constructor
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param         $wrappedObj
      * @param boolean $isPropagated
@@ -112,7 +112,7 @@ class Chain
     /**
      * Perform a method call to the specified method name using the specified arguments array.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param string $method
      * @param array  $args
@@ -142,7 +142,7 @@ class Chain
      *
      * If propagation is enabled then an object is decorated by the Chain class as well.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param string $method
      * @param array  $args
@@ -180,7 +180,7 @@ class Chain
     /**
      * Set wrapped object property.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param string $prop
      * @param mixed  $value
@@ -197,7 +197,7 @@ class Chain
     /**
      * Get wrapped object property.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param string $prop
      *
@@ -211,7 +211,7 @@ class Chain
     /**
      * Check if wrapped object property is set.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param string $prop
      *
@@ -225,7 +225,7 @@ class Chain
     /**
      * Unset wrapped object property.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param string $prop
      */
@@ -237,7 +237,7 @@ class Chain
     /**
      * Disable the Chain behaviour when calling wrapped object methods.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @return $this
      */
@@ -251,7 +251,7 @@ class Chain
     /**
      * Enable the Chain behaviour when calling wrapped object methods.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @return $this
      */
@@ -265,7 +265,7 @@ class Chain
     /**
      * Register method for whitelisting.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param string $method
      *
@@ -283,7 +283,7 @@ class Chain
     /**
      * Unregister method from whitelist.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param string $method
      *
@@ -301,7 +301,7 @@ class Chain
     /**
      * Retrieve all whitelist contents.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @return string[]
      */
@@ -313,7 +313,7 @@ class Chain
     /**
      * Replace whitelist with the specified array.
      *
-     * @author Francois Raeven <francois@raeven.eu>
+     * @author Francois Raeven <francois@twire.nl>
      *
      * @param array $whitelist
      *
